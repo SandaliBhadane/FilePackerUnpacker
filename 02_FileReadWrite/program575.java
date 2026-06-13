@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+class program575
+{
+  public static void main(String A[]) throws Exception
+  {
+    int iRet = 0;
+    boolean bRet = false;
+    String FileName = null;
+    byte Buffer[] = new byte[100];
+
+    Scanner sobj = new Scanner(System.in);
+
+    System.out.println("Enter the name of File :");
+    FileName = sobj.nextLine();
+
+    File fobj = new File(FileName);
+
+    if(fobj.exists())
+    {
+      String str = null;
+      FileInputStream fiobj = new FileInputStream(fobj);
+
+      while((iRet = fiobj.read(Buffer)) != -1 )     //Had Error some extra output
+      {
+        str = new String(Buffer);
+        System.out.println(str);
+        str = null;
+      }
+      System.out.println();
+    }
+    else 
+    {
+      System.out.println("There is no such file. ");
+    }
+   
+    sobj.close();
+   
+  }
+}
